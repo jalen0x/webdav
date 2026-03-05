@@ -95,6 +95,11 @@ func NewHandler(c *Config) (http.Handler, error) {
 
 // ServeHTTP determines if the request is for this plugin, and if all prerequisites are met.
 func (h *Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	if r.URL.Path == "/health" {
+		w.WriteHeader(http.StatusOK)
+		return
+	}
+
 	user := h.user
 
 	lZap := getRequestLogger(r, h.behindProxy)

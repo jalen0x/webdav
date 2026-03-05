@@ -13,7 +13,7 @@ proxy:
     certificate_pem: SSL_CERTIFICATE
     private_key_pem: SSL_PRIVATE_KEY
   healthcheck:
-    path: /
+    path: /health
 
 registry:
   username: jalen0x
