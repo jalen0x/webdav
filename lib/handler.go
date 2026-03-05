@@ -95,7 +95,7 @@ func NewHandler(c *Config) (http.Handler, error) {
 
 // ServeHTTP determines if the request is for this plugin, and if all prerequisites are met.
 func (h *Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-	if r.URL.Path == "/health" {
+	if r.URL.Path == "/up" {
 		w.WriteHeader(http.StatusOK)
 		return
 	}
