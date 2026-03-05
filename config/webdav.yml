@@ -1,0 +1,7 @@
+directory: /data
+permissions: CRUD
+behindProxy: true
+
+users:
+  - username: "{env}WEBDAV_USERNAME"
+    password: "{env}WEBDAV_PASSWORD"

@@ -14,6 +14,7 @@ RUN go build -o main -trimpath -ldflags="-s -w -X 'github.com/hacdias/webdav/v5/
 FROM scratch
 
 COPY --from=build /webdav/main /bin/webdav
+COPY config/webdav.yml /etc/webdav/config.yml
 
 EXPOSE 6065
 

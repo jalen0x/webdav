@@ -1,0 +1,36 @@
+service: webdav
+
+image: jalen0x/webdav
+
+servers:
+  web:
+    - 192.168.88.11
+
+proxy:
+  host: webdav.jalenx.me
+  app_port: 6065
+  ssl:
+    certificate_pem: SSL_CERTIFICATE
+    private_key_pem: SSL_PRIVATE_KEY
+  healthcheck:
+    path: /
+
+registry:
+  username: jalen0x
+  password:
+    - KAMAL_REGISTRY_PASSWORD
+
+builder:
+  arch: amd64
+  remote: ssh://jalen@192.168.88.11
+
+env:
+  secret:
+    - WEBDAV_USERNAME
+    - WEBDAV_PASSWORD
+
+ssh:
+  user: jalen
+
+volumes:
+  - /data/webdav:/data
